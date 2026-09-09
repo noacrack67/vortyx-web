@@ -1,31 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VORTYX | Discord Servers</title>
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <h1>VORTYX</h1>
-  <p>Tu comunidad. Tu estilo.</p>
+<title>VORTYX | Servidores de Discord</title>
 
-  <h2>💰 Nuestros Packs</h2>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-  <h3>🟢 BASIC — 5€</h3>
-  <p>La base perfecta para comenzar tu servidor de Discord.</p>
+body {
+  background: #08080d;
+  color: white;
+}
 
-  <h3>🔵 PRO — 10€</h3>
-  <p>Una configuración más completa con sistemas esenciales.</p>
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background:
+    radial-gradient(circle at top, #35206b 0%, #11111c 45%, #08080d 75%);
+}
 
-  <h3>🟣 ULTRA — 20€</h3>
-  <p>La opción más completa y personalizada.</p>
+.hero h1 {
+  font-size: 70px;
+  letter-spacing: 8px;
+  background: linear-gradient(90deg, #8b5cf6, #c084fc, #60a5fa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-  <h2>🖼️ Portfolio</h2>
-  <p>Descubre algunos de nuestros proyectos.</p>
+.hero p {
+  font-size: 22px;
+  color: #c9c9d4;
+  margin: 20px 0 35px;
+}
 
-  <h2>📩 ¿Necesitas un servidor?</h2>
-  <p>Contacta con VORTYX para empezar tu proyecto.</p>
+.button {
+  display: inline-block;
+  padding: 15px 28px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
 
-</body>
-</html>
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #6d28d955;
+}
+
+section {
+  padding: 80px 7%;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.packs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: #11111a;
+  border: 1px solid #29293b;
+  border-radius: 20px;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #8b5cf6;
+}
+
+.card h3 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.card ul {
+  list-style: none;
+  margin: 25px 0;
+}
+
+.card li {
+  margin: 12px 0;
+  color: #cfcfda;
+}
+
+.basic {
+  border-top: 4px solid #22c55e;
+}
+
+.pro {
+  border-top: 4px solid #3b82f6;
+}
+
+.ultra {
+  border-top: 4px solid #a855f7;
+}
+
+.about {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  color: #c9c9d4;
+  line-height: 1.7;
+}
+
+.form-container {
+  max-width: 650px;
+  margin: auto;
+  background: #11111a;
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid #29293b;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 7px;
+ 
