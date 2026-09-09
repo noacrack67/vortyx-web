@@ -1,150 +1,574 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTYX | Servidores de Discord</title>
 
-<title>VORTYX | Servidores de Discord</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  background: #08080d;
-  color: white;
-}
+    body {
+      background: #08080d;
+      color: white;
+    }
 
-header {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px;
-  background:
-    radial-gradient(circle at top, #35206b 0%, #11111c 45%, #08080d 75%);
-}
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background:
+        radial-gradient(circle at top, #35206b 0%, #11111c 45%, #08080d 75%);
+    }
 
-.hero h1 {
-  font-size: 70px;
-  letter-spacing: 8px;
-  background: linear-gradient(90deg, #8b5cf6, #c084fc, #60a5fa);
-  -webkit-background-clip: text;
-  color: transparent;
-}
+    .hero h1 {
+      font-size: 70px;
+      letter-spacing: 8px;
+      background: linear-gradient(90deg, #8b5cf6, #c084fc, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-.hero p {
-  font-size: 22px;
-  color: #c9c9d4;
-  margin: 20px 0 35px;
-}
+    .hero p {
+      font-size: 22px;
+      color: #c9c9d4;
+      margin: 20px 0 35px;
+    }
 
-.button {
-  display: inline-block;
-  padding: 15px 28px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #7c3aed, #2563eb);
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.25s;
-}
+    .button {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #7c3aed, #2563eb);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+    }
 
-.button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px #6d28d955;
-}
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px #6d28d955;
+    }
 
-section {
-  padding: 80px 7%;
-}
+    section {
+      padding: 80px 7%;
+    }
 
-.title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 50px;
-}
+    .title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 50px;
+    }
 
-.packs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
-}
+    .packs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.card {
-  background: #11111a;
-  border: 1px solid #29293b;
-  border-radius: 20px;
-  padding: 30px;
-  transition: 0.3s;
-}
+    .card {
+      background: #11111a;
+      border: 1px solid #29293b;
+      border-radius: 20px;
+      padding: 30px;
+      transition: 0.3s;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-  border-color: #8b5cf6;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #8b5cf6;
+    }
 
-.card h3 {
-  font-size: 27px;
-  margin-bottom: 10px;
-}
+    .card h3 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
 
-.price {
-  font-size: 35px;
-  font-weight: bold;
-  margin: 15px 0;
-}
+    .price {
+      font-size: 35px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
 
-.card ul {
-  list-style: none;
-  margin: 25px 0;
-}
+    .card ul {
+      list-style: none;
+      margin: 25px 0;
+    }
 
-.card li {
-  margin: 12px 0;
-  color: #cfcfda;
-}
+    .card li {
+      margin: 12px 0;
+      color: #cfcfda;
+    }
 
-.basic {
-  border-top: 4px solid #22c55e;
-}
+    .basic {
+      border-top: 4px solid #22c55e;
+    }
 
-.pro {
-  border-top: 4px solid #3b82f6;
-}
+    .pro {
+      border-top: 4px solid #3b82f6;
+    }
 
-.ultra {
-  border-top: 4px solid #a855f7;
-}
+    .ultra {
+      border-top: 4px solid #a855f7;
+    }
 
-.about {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  color: #c9c9d4;
-  line-height: 1.7;
-}
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      color: #c9c9d4;
+      line-height: 1.7;
+    }
 
-.form-container {
-  max-width: 650px;
-  margin: auto;
-  background: #11111a;
-  padding: 35px;
-  border-radius: 20px;
-  border: 1px solid #29293b;
-}
+    .form-container {
+      max-width: 650px;
+      margin: auto;
+      background: #11111a;
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid #29293b;
+    }
 
-label {
-  display: block;
-  margin-top: 18px;
-  margin-bottom: 7px;
- 
+    label {
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #343449;
+      background: #08080d;
+      color: white;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success {
+      text-align: center;
+      max-width: 650px;
+      margin: auto;
+      background: #11111a;
+      padding: 45px;
+      border-radius: 20px;
+      border: 1px solid #22c55e;
+    }
+
+    .success h2 {
+      color: #4ade80;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #77778a;
+      border-top: 1px solid #1f1f2c;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <h1>VORTYX</h1>
+
+      <p>
+        Servidores de Discord personalizados para tu comunidad.
+      </p>
+
+      <a href="#packs" class="button">
+        VER PACKS
+      </a>
+    </div>
+  </header>
+
+
+  <section id="packs">
+
+    <h2 class="title">
+      💰 Nuestros Packs
+    </h2>
+
+    <div class="packs">
+
+      <div class="card basic">
+
+        <h3>🟢 BASIC</h3>
+
+        <div class="price">
+          5€
+        </div>
+
+        <p>
+          La base perfecta para comenzar tu servidor.
+        </p>
+
+        <ul>
+          <li>✓ Estructura del servidor</li>
+          <li>✓ Categorías y canales</li>
+          <li>✓ Roles básicos</li>
+          <li>✓ Permisos principales</li>
+          <li>✓ Configuración inicial</li>
+        </ul>
+
+        <button class="button" onclick="comprar('BASIC')">
+          COMPRAR
+        </button>
+
+      </div>
+
+
+      <div class="card pro">
+
+        <h3>🔵 PRO</h3>
+
+        <div class="price">
+          10€
+        </div>
+
+        <p>
+          Una configuración mucho más completa.
+        </p>
+
+        <ul>
+          <li>✓ Todo lo incluido en BASIC</li>
+          <li>✓ Sistema de tickets</li>
+          <li>✓ Sistema de moderación</li>
+          <li>✓ Sistema de logs</li>
+          <li>✓ Roles personalizados</li>
+          <li>✓ Configuración de bots</li>
+        </ul>
+
+        <button class="button" onclick="comprar('PRO')">
+          COMPRAR
+        </button>
+
+      </div>
+
+
+      <div class="card ultra">
+
+        <h3>🟣 ULTRA</h3>
+
+        <div class="price">
+          20€
+        </div>
+
+        <p>
+          La experiencia VORTYX completa.
+        </p>
+
+        <ul>
+          <li>✓ Todo lo incluido en PRO</li>
+          <li>✓ Diseño personalizado</li>
+          <li>✓ Sistemas avanzados</li>
+          <li>✓ Configuración completa</li>
+          <li>✓ Personalización avanzada</li>
+          <li>✓ Servidor preparado</li>
+        </ul>
+
+        <button class="button" onclick="comprar('ULTRA')">
+          COMPRAR
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <h2 class="title">
+      🌀 ¿Qué es VORTYX?
+    </h2>
+
+    <div class="about">
+
+      <p>
+        VORTYX crea servidores de Discord personalizados
+        para comunidades, proyectos y creadores.
+      </p>
+
+      <br>
+
+      <p>
+        Tú nos dices cómo quieres tu servidor y nosotros
+        nos encargamos de prepararlo para que puedas
+        empezar a utilizarlo.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section id="pedido" class="hidden">
+
+    <h2 class="title">
+      🛒 Personaliza tu pedido
+    </h2>
+
+    <div class="form-container">
+
+      <form onsubmit="enviarPedido(event)">
+
+        <label>
+          👤 Usuario de Discord
+        </label>
+
+        <input
+          id="discord"
+          type="text"
+          placeholder="Ejemplo: usuario"
+          required
+        >
+
+
+        <label>
+          🏠 Nombre del servidor
+        </label>
+
+        <input
+          id="servidor"
+          type="text"
+          placeholder="Ejemplo: Mi Comunidad"
+          required
+        >
+
+
+        <label>
+          📦 Pack seleccionado
+        </label>
+
+        <select id="pack">
+
+          <option>
+            BASIC - 5€
+          </option>
+
+          <option>
+            PRO - 10€
+          </option>
+
+          <option>
+            ULTRA - 20€
+          </option>
+
+        </select>
+
+
+        <label>
+          🎨 ¿Qué estilo quieres?
+        </label>
+
+        <input
+          id="estilo"
+          type="text"
+          placeholder="Gaming, elegante, oscuro..."
+          required
+        >
+
+
+        <label>
+          🤖 ¿Qué bots o sistemas necesitas?
+        </label>
+
+        <textarea
+          id="sistemas"
+          placeholder="Tickets, moderación, bienvenida, logs..."
+        ></textarea>
+
+
+        <label>
+          📝 Explícanos exactamente qué quieres
+        </label>
+
+        <textarea
+          id="detalles"
+          placeholder="Cuéntanos todos los detalles de tu servidor..."
+          required
+        ></textarea>
+
+
+        <br><br>
+
+        <button class="button" type="submit">
+          CONTINUAR
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <section id="confirmacion" class="hidden">
+
+    <div class="success">
+
+      <h2>
+        ✅ Pedido preparado
+      </h2>
+
+      <p>
+        Hemos recibido la información de tu pedido.
+      </p>
+
+      <br>
+
+      <p>
+        ⏱️ Tiempo estimado:
+        <strong>1–3 días</strong>
+      </p>
+
+      <br>
+
+      <p>
+        Cuando el servidor esté terminado podrás
+        recibir aquí tu invitación de Discord.
+      </p>
+
+      <br>
+
+      <button class="button" onclick="volverInicio()">
+        VOLVER AL INICIO
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    © 2026 VORTYX — Servidores de Discord personalizados.
+
+  </footer>
+
+
+  <script>
+
+    let packSeleccionado = "";
+
+
+    function comprar(pack) {
+
+      packSeleccionado = pack;
+
+      document
+        .getElementById("pedido")
+        .classList
+        .remove("hidden");
+
+      document
+        .getElementById("pedido")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+
+      if (pack === "BASIC") {
+
+        document.getElementById("pack").value =
+          "BASIC - 5€";
+
+      }
+
+      else if (pack === "PRO") {
+
+        document.getElementById("pack").value =
+          "PRO - 10€";
+
+      }
+
+      else {
+
+        document.getElementById("pack").value =
+          "ULTRA - 20€";
+
+      }
+
+    }
+
+
+    function enviarPedido(event) {
+
+      event.preventDefault();
+
+
+      document
+        .getElementById("pedido")
+        .classList
+        .add("hidden");
+
+
+      document
+        .getElementById("confirmacion"
+        .scrollIntoView({ behavior: "smooth" });
+    }
+
+    function volverInicio() {
+      document.getElementById("confirmacion").classList.add("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+  </script>
+
+</body>
+</html>
+
+
+
+
+    
+       
